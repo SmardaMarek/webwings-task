@@ -2,20 +2,25 @@
 require 'AuthenticaService.php';
 require 'FileClass.php';
 
-$auth = new AuthenticaService();
+$config = require 'config.php';
+$auth = new AuthenticaService(
+    $config['authentica']['client_id'],
+    $config['authentica']['client_secret'],
+    $config['authentica']['api_base_url']
+);
 $file = new FileClass();
 
 $productId = $auth->createProduct([
     "name" => "Test product",
     "declarationName" => "Test product declaration",
     "skus" => [
-    "sku-3012"
+    "sku-3014"
     ],
 ]);
 
 $orderId = $auth->createOrder(
     [
-        "externalId" => "external-ccx-3",
+        "externalId" => "external-ccx-5",
         "carrierId" => 7,
         "branchId" => null,
         "price" => "153.00",

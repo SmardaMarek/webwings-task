@@ -6,11 +6,11 @@ class AuthenticaService
     private string $apiBaseUrl;
     private string $accessToken;
 
-    public function __construct()
+    public function __construct(string $clientId, string $clientSecret, string $apiBaseUrl)
     {
-        $this->clientId     = '07506fc47db879f25a41d55f87793aef';
-        $this->clientSecret = 'aa216ee1aef389244f1f3aa4de32076b842dd95fe3463cf2e78183ef5cd89c189f4ee04fd4f721245f0cc506aa11285841d10e3f54f37deac47c5df324d34bd0';
-        $this->apiBaseUrl   = 'https://delta.authentica.webwings.dev/api';
+        $this->clientId     = $clientId;
+        $this->clientSecret = $clientSecret;
+        $this->apiBaseUrl   = $apiBaseUrl;
         $this->accessToken  = $this->getAccessToken();
     }
 
